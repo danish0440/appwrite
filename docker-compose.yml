@@ -27,10 +27,9 @@ services:
       - --entrypoints.appwrite_websecure.address=:443
       - --accesslog=true
     ports:
-      - 80:80
-      - 8080:80
-      - 443:443
-      - 9500:8080
+      - 8088:80      # Changed from 80:80
+      - 8443:443     # Changed from 443:443
+      - 9500:8080    # This is for Traefik's own dashboard, it's fine.
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - appwrite-config:/storage/config:ro
